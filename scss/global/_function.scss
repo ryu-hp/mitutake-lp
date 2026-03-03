@@ -1,0 +1,82 @@
+@use "sass:math";
+
+// ブレイクポイント
+$breakpoints: (
+  md: 800px,
+  lg: 959px,
+);
+
+// @include mq(){}で書くとブレークポイントが反映される（初期値はmd）
+@mixin mq($mediaquery: md) {
+  @media screen and (max-width: map-get($breakpoints, $mediaquery)) {
+    @content;
+  }
+}
+
+// remへの計算式（16pxを基準としている。10pxを基準とする場合は16を10に変更する）
+@function rem($pixels) {
+  @return math.div($pixels, 16) * 1rem;
+}
+
+// 単位を除去
+@function strip-unit($number) {
+  @if type-of($number) == "number" and not unitless($number) {
+    @return math.div($number, $number * 0 + 1);
+  }
+  @return $number;
+}
+
+// vw換算
+@function vw($window_width, $font_size) {
+  @return math.div($font_size, $window_width) * 100vw;
+}
+
+// フォントファミリー, "", 
+$base-font-family: 'Noto Sans JP', sans-serif;
+$second-font-family: 'Poppins', sans-serif;
+
+// フォントウェイト
+$w-black : 900;
+$bold : 700;
+$medium : 500;
+$normal : 400;
+$light : 300;
+
+// カラーパレット
+$color-black: #37474F;
+$color-white: #ffffff;
+// プライマリーブルー（テーマカラー）
+$color-theme: #008F54;
+// アクセントレッド
+$color-brown: #53280D;
+// 背景黄色
+$color-yellow: #FFF07D;
+// 橙色
+$color-orange: #F94204;
+// 背景緑
+$color-green-bg: #F3F3EA;
+
+// Variables
+$color-primary: #8BC34A;
+$color-primary-dark: #689F38;
+$color-secondary: #FF9800;
+$color-secondary-light: #FB8C00;
+$color-text: #37474F;
+$color-text-light: #546E7A;
+$color-bg-light: #F5F5F5;
+$color-bg-very-light: #FAFAFA;
+$color-white: #FFFFFF;
+$color-border: #607D8B;
+$color-highlight: #7CB342;
+
+
+// レイアウト幅
+$inner: 1100px;
+$maxwidth: 760;
+
+// パディング設定
+$padding-pc: 20px;
+$padding-sp: 1.25rem;
+
+// ————————————————————————
+// グラデーション定義
