@@ -3,9 +3,11 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
-  line-height: 1.5;
   color: $color-black;
   font-family: $base-font-family;
+  letter-spacing: 0.05em;
+  line-height: calc(25.6 / 16);
+  font-weight: 500;
   @include mq(md) {
     font-size: calc(16 / 375 * 100vw);
   }
@@ -30,11 +32,6 @@ a {
 
 a:hover {
   opacity: 0.8;
-}
-
-main {
-  position: relative;
-  z-index: 1;
 }
 
 // コンテナ

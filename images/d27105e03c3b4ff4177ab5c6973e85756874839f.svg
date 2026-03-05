@@ -1,0 +1,19 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="nayami-icon-05">
+<circle id="Ellipse 39" cx="50" cy="50" r="49.5" fill="var(--fill-0, white)" stroke="var(--stroke-0, #2B635E)"/>
+<g id="elements" clip-path="url(#clip0_309_1966)">
+<g id="Group">
+<path id="Vector" d="M73 46.8593V40.5798C73 39.3149 71.9687 38.2851 70.7019 38.2851H31.2981C30.0313 38.2851 29 39.3149 29 40.5798V46.8593L51 53.1333L73 46.8593Z" fill="var(--fill-0, #2B635E)"/>
+<path id="Vector_2" d="M51 55.607L29 49.3331V66.7053C29 67.9702 30.0313 69 31.2981 69H70.7019C71.9687 69 73 67.9702 73 66.7053V49.3331L51 55.607Z" fill="var(--fill-0, #2B635E)"/>
+<path id="Vector_3" d="M73 49.3331V46.8593L51 53.1333L29 46.8593V49.3331L51 55.607L73 49.3331Z" fill="var(--fill-0, white)"/>
+</g>
+<path id="Vector_4" d="M55.3439 50.9393H46.6504V56.3346H55.3439V50.9393Z" fill="var(--fill-0, white)"/>
+<path id="Vector_5" d="M56.4818 43.5069H45.5126C43.4219 43.5069 41.718 41.8055 41.718 39.7179V35.789C41.718 33.7014 43.4219 32 45.5126 32H56.4818C58.5725 32 60.2764 33.7014 60.2764 35.789V39.7179C60.2764 41.8055 58.5725 43.5069 56.4818 43.5069ZM45.5126 35.1733C45.1707 35.1733 44.896 35.4476 44.896 35.789V39.7179C44.896 40.0593 45.1707 40.3335 45.5126 40.3335H56.4818C56.8237 40.3335 57.0983 40.0593 57.0983 39.7179V35.789C57.0983 35.4476 56.8237 35.1733 56.4818 35.1733H45.5126Z" fill="var(--fill-0, #2B635E)"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_309_1966">
+<rect width="44" height="37" fill="white" transform="translate(29 32)"/>
+</clipPath>
+</defs>
+</svg>

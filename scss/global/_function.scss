@@ -2,7 +2,7 @@
 
 // ブレイクポイント
 $breakpoints: (
-  md: 800px,
+  md: 768px,
   lg: 959px,
 );
 
@@ -33,7 +33,7 @@ $breakpoints: (
 
 // フォントファミリー, "", 
 $base-font-family: 'Noto Sans JP', sans-serif;
-$second-font-family: 'Poppins', sans-serif;
+$second-font-family: "Noto Serif JP", serif;
 
 // フォントウェイト
 $w-black : 900;
@@ -43,18 +43,16 @@ $normal : 400;
 $light : 300;
 
 // カラーパレット
-$color-black: #37474F;
+$color-black: #2e2e2e;
 $color-white: #ffffff;
 // プライマリーブルー（テーマカラー）
-$color-theme: #008F54;
-// アクセントレッド
-$color-brown: #53280D;
+$color-theme: #2b635e;
+// アクセントブラウン
+$color-brown: #C4A666;
 // 背景黄色
 $color-yellow: #FFF07D;
 // 橙色
-$color-orange: #F94204;
-// 背景緑
-$color-green-bg: #F3F3EA;
+$color-light-green: #3d9c08;
 
 // Variables
 $color-primary: #8BC34A;
@@ -71,8 +69,7 @@ $color-highlight: #7CB342;
 
 
 // レイアウト幅
-$inner: 1100px;
-$maxwidth: 760;
+$inner: 1200px;
 
 // パディング設定
 $padding-pc: 20px;
