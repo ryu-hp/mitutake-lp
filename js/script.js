@@ -30,32 +30,49 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // FAQアコーディオン
-  const faqItems = document.querySelectorAll('.faq-item');
+  const faqItems = document.querySelectorAll('.faq__item');
   
   faqItems.forEach((item) => {
-    const question = item.querySelector('.faq-item__question');
-    const answer = item.querySelector('.faq-item__answer');
+    const question = item.querySelector('.faq__contents--head');
+    const answer = item.querySelector('.faq__contents--answer');
     
-    // 初期状態で閉じる
-    answer.style.maxHeight = '0';
-    answer.style.opacity = '0';
-    answer.style.marginTop = '0';
+    if (!question || !answer) return;
     
-    item.addEventListener('click', () => {
-      const isOpen = item.classList.contains('is-open');
+    // クリック可能なカーソルを設定
+    question.style.cursor = 'pointer';
+    
+    // 初期状態の設定（アクティブでない場合は閉じる）
+    if (!item.classList.contains('faq__item--active')) {
+      answer.style.maxHeight = '0';
+      answer.style.overflow = 'hidden';
+    } else {
+      // 一時的にmax-heightを解除してから正しい高さを取得
+      answer.style.maxHeight = 'none';
+      const height = answer.scrollHeight;
+      answer.style.maxHeight = '0';
+      // 次のフレームで高さを設定（アニメーションのため）
+      requestAnimationFrame(() => {
+        answer.style.maxHeight = height + 'px';
+      });
+    }
+    
+    question.addEventListener('click', () => {
+      const isOpen = item.classList.contains('faq__item--active');
       
       if (isOpen) {
         // 閉じる
         answer.style.maxHeight = '0';
-        answer.style.opacity = '0';
-        answer.style.marginTop = '0';
-        item.classList.remove('is-open');
+        item.classList.remove('faq__item--active');
       } else {
-        // 開く
-        answer.style.maxHeight = answer.scrollHeight + 'px';
-        answer.style.opacity = '1';
-        answer.style.marginTop = '40px';
-        item.classList.add('is-open');
+        // 開く：一時的にmax-heightを解除してから正しい高さを取得
+        answer.style.maxHeight = 'none';
+        const height = answer.scrollHeight;
+        answer.style.maxHeight = '0';
+        // 次のフレームで高さを設定（アニメーションのため）
+        requestAnimationFrame(() => {
+          answer.style.maxHeight = height + 'px';
+          item.classList.add('faq__item--active');
+        });
       }
     });
   });
