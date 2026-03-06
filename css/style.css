@@ -236,6 +236,24 @@ body {
   color: var(--color-black);
 }
 
+.br-sp {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .br-sp {
+    display: block;
+  }
+}
+
+.br-pc {
+  display: block;
+}
+@media screen and (max-width: 768px) {
+  .br-pc {
+    display: none;
+  }
+}
+
 .section-title {
   text-align: center;
   margin-bottom: 2.5rem;
@@ -406,9 +424,13 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  overflow: clip;
+  position: relative;
+}
+
+.kv__container {
   padding-top: 7.0833333333vw;
   padding-bottom: 7.6388888889vw;
-  overflow: clip;
   position: relative;
 }
 
@@ -548,6 +570,58 @@ body {
   width: 20.1388888889vw;
 }
 
+@media screen and (min-width: 1440px) {
+  .kv__container {
+    padding-top: 102px;
+    padding-bottom: 110px;
+  }
+  .kv__image-contents {
+    width: 472px;
+    right: 130px;
+  }
+  .kv__main-copy-block {
+    font-size: 54px;
+    padding: 0 10px;
+  }
+  .kv__main-copy-block + .kv__main-copy-block {
+    margin-top: 12px;
+  }
+  .kv__main-copy {
+    margin-bottom: 30px;
+  }
+  .kv__sub-copy {
+    font-size: 24px;
+    margin-bottom: 44px;
+  }
+  .kv__feature {
+    gap: 50px;
+    margin-bottom: 40px;
+  }
+  .kv__feature-item {
+    gap: 20px;
+  }
+  .kv__feature-text {
+    font-size: 20px;
+  }
+  .kv__feature-item:nth-child(1) .kv__feature-image {
+    width: 61px;
+  }
+  .kv__feature-item:nth-child(2) .kv__feature-image {
+    width: 67px;
+  }
+  .kv__feature-item:nth-child(3) .kv__feature-image {
+    width: 65px;
+  }
+  .kv__feature-item:not(:last-child)::after {
+    left: calc(100% + 24px);
+  }
+  .kv__btn-contents {
+    gap: 24px;
+  }
+  .kv__btn {
+    width: 290px;
+  }
+}
 .section--concerns {
   position: relative;
   padding: 6.25rem 0 9.875rem;
@@ -797,7 +871,7 @@ body {
 }
 
 .cta01__image {
-  max-width: 28.125rem;
+  max-width: 37.5%;
   width: 100%;
   -ms-flex-negative: 0;
       flex-shrink: 0;
@@ -1304,7 +1378,7 @@ body {
 }
 
 .choice__card-image {
-  max-width: 26.125rem;
+  max-width: 38%;
   width: 100%;
   -ms-flex-negative: 0;
       flex-shrink: 0;
@@ -2468,7 +2542,10 @@ input[type=submit].form-item__submit {
     width: 8.75rem;
     padding: 0.125rem 0.5rem;
   }
-  .section--kv {
+  .text-dot::before {
+    bottom: 95%;
+  }
+  .kv__container {
     padding-top: 3.75rem;
     padding-bottom: 3.75rem;
   }
@@ -2483,25 +2560,33 @@ input[type=submit].form-item__submit {
     position: static;
     width: 100%;
     margin-top: 1.875rem;
+    display: none;
+  }
+  .kv__main-copy {
+    margin-bottom: 1rem;
   }
   .kv__main-copy-block {
-    font-size: 1.75rem;
+    font-size: 1.625rem;
     padding: 0 0.5rem;
+  }
+  .kv__main-copy-block + .kv__main-copy-block {
+    margin-top: 0.625rem;
   }
   .kv__sub-copy {
     font-size: 1rem;
     margin-bottom: 1.875rem;
   }
   .kv__feature {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
     gap: 1.25rem;
     margin-bottom: 1.875rem;
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
   }
   .kv__feature-item {
     gap: 0.75rem;
@@ -2562,7 +2647,7 @@ input[type=submit].form-item__submit {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    gap: 1.875rem;
+    gap: 0;
   }
   .risks__images {
     width: 100%;
@@ -2572,11 +2657,14 @@ input[type=submit].form-item__submit {
     height: 15.625rem;
   }
   .risks__main {
-    padding-right: 0;
-    padding-left: 1.25rem;
+    padding: 0 1.25rem;
   }
   .risks__list {
     padding: 1.875rem 0;
+  }
+  .risks__item::before {
+    width: 1.5rem;
+    height: 1.125rem;
   }
   .risks__title-wrapper {
     margin-bottom: 1.875rem;
@@ -2586,12 +2674,12 @@ input[type=submit].form-item__submit {
   }
   .risks__item {
     font-size: 1rem;
-    padding-left: 2.5rem;
+    padding-left: 2rem;
   }
   .cta01,
   .cta02,
   .cta03 {
-    padding: 2.5rem 1rem;
+    padding: 2.5rem 0;
   }
   .cta01__columns {
     -webkit-box-orient: vertical;
@@ -2642,6 +2730,8 @@ input[type=submit].form-item__submit {
   .cta02__image-content {
     width: 100%;
     padding: 1.25rem 1rem;
+    background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#E2EFD9));
+    background: linear-gradient(180deg, #FFF 0%, #E2EFD9 100%);
   }
   .cta02__text {
     padding: 1.875rem 1.25rem;
@@ -2678,7 +2768,7 @@ input[type=submit].form-item__submit {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    gap: 1.875rem;
+    gap: 3rem;
   }
   .reason__card {
     max-width: 100%;
@@ -2726,11 +2816,11 @@ input[type=submit].form-item__submit {
   }
   .service__comments {
     -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
     gap: 1.25rem;
-    padding: 0 1.25rem;
+    padding: 0;
   }
   .service__comments-image {
     width: 7.5rem;
@@ -2741,7 +2831,9 @@ input[type=submit].form-item__submit {
     margin-top: 0;
   }
   .service__comments-box::before {
-    display: none;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    left: 10%;
+    top: calc(100% - 0.625rem);
   }
   .service__comments-head {
     font-size: 1rem;
@@ -2771,6 +2863,7 @@ input[type=submit].form-item__submit {
   }
   .choice__card-image {
     max-width: 100%;
+    width: 100%;
   }
   .choice__text {
     max-width: 100%;
@@ -2788,6 +2881,10 @@ input[type=submit].form-item__submit {
   }
   .choice__card-list-item {
     font-size: 1rem;
+    padding-left: 1.5rem;
+  }
+  .choice__card-list-item:not(:last-child) {
+    margin-bottom: 0.625rem;
   }
   .section--price {
     padding: 3.75rem 0;
@@ -2795,7 +2892,7 @@ input[type=submit].form-item__submit {
   .price__description {
     font-size: 1rem;
     margin-bottom: 1.875rem;
-    padding: 0 1.25rem;
+    padding: 0;
   }
   .price__cards {
     -webkit-box-orient: vertical;
@@ -2803,7 +2900,7 @@ input[type=submit].form-item__submit {
         -ms-flex-direction: column;
             flex-direction: column;
     gap: 1.25rem;
-    padding: 0 1.25rem;
+    padding: 0;
   }
   .price__card {
     padding: 0 1.25rem;
@@ -2861,7 +2958,7 @@ input[type=submit].form-item__submit {
   }
   .price__bottom-text {
     gap: 0.5rem;
-    padding: 0 1.25rem;
+    padding: 0;
   }
   .price__bottom-text-block {
     font-size: 1.125rem;
@@ -2889,6 +2986,8 @@ input[type=submit].form-item__submit {
   .flow__card-images {
     max-width: 100%;
     gap: 1.25rem;
+    position: relative;
+    z-index: 1;
   }
   .flow__card-image-tag {
     font-size: 1rem;
@@ -2901,10 +3000,14 @@ input[type=submit].form-item__submit {
     margin-bottom: 1.5625rem;
   }
   .flow__card-step-item::after {
-    height: 1.6875rem;
-    left: 1.25rem;
+    height: 5rem;
+    left: 1.5rem;
+    top: 3rem;
   }
   .flow__card-step-item:last-child:after {
+    height: 20rem;
+  }
+  .flow__card:last-child .flow__card-step-item:after {
     height: 7.5rem;
   }
   .flow__card-step-number {
@@ -2944,8 +3047,10 @@ input[type=submit].form-item__submit {
     width: 100%;
   }
   .cases__badge {
-    width: 5rem;
-    height: 5rem;
+    width: 4rem;
+    height: 4rem;
+    top: -1.5rem;
+    left: -1rem;
   }
   .cases__badge-text {
     font-size: 0.875rem;
@@ -2971,7 +3076,7 @@ input[type=submit].form-item__submit {
     padding-right: 1.25rem;
   }
   .faq__icon {
-    max-width: 3.75rem;
+    max-width: 2.5rem;
     font-size: 1.5rem;
   }
   .faq__text {
@@ -2996,6 +3101,7 @@ input[type=submit].form-item__submit {
     font-size: 1rem;
     margin-bottom: 1.875rem;
     padding: 0 1.25rem;
+    text-align: left;
   }
   .company__contents {
     padding: 1.875rem 1rem 1.25rem;

@@ -25,7 +25,18 @@ body {
   color: var(--color-black);
 }
 
-
+.br-sp {
+  display: none;
+  @include mq(md) {
+    display: block;
+  }
+}
+.br-pc {
+  display: block;
+  @include mq(md) {
+    display: none;
+  }
+}
 
 // Section Title (Common)
 .section-title {
@@ -164,11 +175,15 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding-top: calc(102 / 1440 * 100vw);
-  padding-bottom: calc(110 / 1440 * 100vw);
   overflow: clip;
   position: relative;
 }
+.kv__container {
+  padding-top: calc(102 / 1440 * 100vw);
+  padding-bottom: calc(110 / 1440 * 100vw);
+  position: relative;
+}
+
 .kv__columns {
   display: flex;
   gap:rem(40) 
@@ -260,6 +275,59 @@ body {
 }
 .kv__btn {
   width: calc(290 / 1440 * 100vw);
+}
+@media screen and (min-width:1440px) {
+  .kv__container {
+    padding-top: 102px;
+    padding-bottom: 110px
+  }
+  .kv__image-contents {
+    width: 472px;
+    right: 130px;
+  }
+  .kv__main-copy-block {
+    font-size: 54px;
+    padding: 0 10px;
+  }
+  .kv__main-copy-block + .kv__main-copy-block {
+    margin-top: 12px;
+  } 
+  .kv__main-copy {
+    margin-bottom: 30px;
+  }
+  .kv__sub-copy {
+    font-size: 24px;
+    margin-bottom: 44px;
+  }
+  .kv__feature {
+    gap: 50px;
+    margin-bottom: 40px;
+  }
+  .kv__feature-item {
+    gap: 20px;
+  }
+  .kv__feature-text {
+    font-size: 20px;
+  }
+  .kv__feature-item:nth-child(1) .kv__feature-image {
+    width: 61px;
+  }
+  .kv__feature-item:nth-child(2) .kv__feature-image {
+    width: 67px;
+  }
+  .kv__feature-item:nth-child(3) .kv__feature-image {
+    width: 65px;
+  }
+  .kv__feature-item:not(:last-child)::after {
+    left: calc(100% + 24px);
+  }
+  .kv__btn-contents {
+    gap: 24px;
+  }
+  .kv__btn {
+    width: 290px;
+  }
+  
 }
 
 // Concerns Section
@@ -475,7 +543,7 @@ body {
   gap: rem(75);
 }
 .cta01__image {
-  max-width: rem(450);
+  max-width: calc(450 / 1200 * 100%);
   width: 100%;
   flex-shrink: 0;
 }
@@ -864,7 +932,7 @@ body {
   flex-direction: row-reverse;
 }
 .choice__card-image {
-  max-width: rem(418);
+  max-width: calc(418 / 1100 * 100%);
   width: 100%;
   flex-shrink: 0;
 }
@@ -1756,8 +1824,12 @@ input[type=submit].form-item__submit {
     padding: rem(2) rem(8);
   }
 
+  .text-dot::before {
+    bottom: 95%;
+  }
+
   // KV Section
-  .section--kv {
+  .kv__container {
     padding-top: rem(60);
     padding-bottom: rem(60);
   }
@@ -1771,11 +1843,18 @@ input[type=submit].form-item__submit {
     position: static;
     width: 100%;
     margin-top: rem(30);
+    display: none;
   }
   
+  .kv__main-copy {
+    margin-bottom: rem(16);
+  }
   .kv__main-copy-block {
-    font-size: rem(28);
+    font-size: rem(26);
     padding: 0 rem(8);
+  }
+  .kv__main-copy-block + .kv__main-copy-block {
+    margin-top: rem(10);
   }
   
   .kv__sub-copy {
@@ -1784,10 +1863,11 @@ input[type=submit].form-item__submit {
   }
   
   .kv__feature {
-    flex-direction: column;
     gap: rem(20);
     margin-bottom: rem(30);
     align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
   }
   
   .kv__feature-item {
@@ -1858,7 +1938,7 @@ input[type=submit].form-item__submit {
 
   .risks__card {
     flex-direction: column;
-    gap: rem(30);
+    gap: 0;
   }
 
   .risks__images {
@@ -1871,12 +1951,16 @@ input[type=submit].form-item__submit {
   }
 
   .risks__main {
-    padding-right: 0;
-    padding-left: rem(20);
+    padding: 0 rem(20);
   }
 
   .risks__list {
     padding: rem(30) 0;
+  }
+  
+  .risks__item::before {
+    width: rem(24);
+    height: rem(18);
   }
 
   .risks__title-wrapper {
@@ -1889,14 +1973,14 @@ input[type=submit].form-item__submit {
 
   .risks__item {
     font-size: rem(16);
-    padding-left: rem(40);
+    padding-left: rem(32);
   }
 
   // CTA Sections
   .cta01,
   .cta02,
   .cta03 {
-    padding: rem(40) rem(16);
+    padding: rem(40) 0;
   }
 
   .cta01__columns {
@@ -1946,6 +2030,7 @@ input[type=submit].form-item__submit {
   .cta02__image-content {
     width: 100%;
     padding: rem(20) rem(16);
+    background: linear-gradient(180deg, #FFF 0%, #E2EFD9 100%);
   }
   
   .cta02__text {
@@ -1983,7 +2068,7 @@ input[type=submit].form-item__submit {
 
   .reason__cards {
     flex-direction: column;
-    gap: rem(30);
+    gap: rem(48);
   }
   
   .reason__card {
@@ -2044,9 +2129,9 @@ input[type=submit].form-item__submit {
   }
   
   .service__comments {
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: rem(20);
-    padding: 0 rem(20);
+    padding: 0;
   }
   
   .service__comments-image {
@@ -2060,7 +2145,9 @@ input[type=submit].form-item__submit {
   }
   
   .service__comments-box::before {
-    display: none;
+    clip-path: polygon(0 0 , 100% 0 , 50% 100%);
+    left: 10%;
+    top: calc(100% - rem(10));
   }
   
   .service__comments-head {
@@ -2092,6 +2179,7 @@ input[type=submit].form-item__submit {
   
   .choice__card-image {
     max-width: 100%;
+    width: 100%;
   }
   
   .choice__text {
@@ -2114,6 +2202,10 @@ input[type=submit].form-item__submit {
   
   .choice__card-list-item {
     font-size: rem(16);
+    padding-left: rem(24);
+  }
+  .choice__card-list-item:not(:last-child) {
+    margin-bottom: rem(10);
   }
 
   // Price Section
@@ -2124,13 +2216,13 @@ input[type=submit].form-item__submit {
   .price__description {
     font-size: rem(16);
     margin-bottom: rem(30);
-    padding: 0 rem(20);
+    padding: 0;
   }
   
   .price__cards {
     flex-direction: column;
     gap: rem(20);
-    padding: 0 rem(20);
+    padding: 0;
   }
   
   .price__card {
@@ -2195,7 +2287,7 @@ input[type=submit].form-item__submit {
   
   .price__bottom-text {
     gap: rem(8);
-    padding: 0 rem(20);
+    padding: 0;
   }
   
   .price__bottom-text-block {
@@ -2228,6 +2320,8 @@ input[type=submit].form-item__submit {
   .flow__card-images {
     max-width: 100%;
     gap: rem(20);
+    position: relative;
+    z-index: 1;
   }
   
   .flow__card-image-tag {
@@ -2244,11 +2338,15 @@ input[type=submit].form-item__submit {
   }
   
   .flow__card-step-item::after {
-    height: rem(27);
-    left: rem(20);
+    height: rem(80);
+    left: rem(24);
+    top: rem(48);
   }
   
   .flow__card-step-item:last-child:after {
+    height: rem(320);
+  }
+  .flow__card:last-child .flow__card-step-item:after {
     height: rem(120);
   }
   
@@ -2296,8 +2394,10 @@ input[type=submit].form-item__submit {
   }
 
   .cases__badge {
-    width: rem(80);
-    height: rem(80);
+    width: rem(64);
+    height: rem(64);
+    top: rem(-24);
+    left: rem(-16);
   }
 
   .cases__badge-text {
@@ -2332,7 +2432,7 @@ input[type=submit].form-item__submit {
   }
   
   .faq__icon {
-    max-width: rem(60);
+    max-width: rem(40);
     font-size: rem(24);
   }
   
@@ -2365,6 +2465,7 @@ input[type=submit].form-item__submit {
     font-size: rem(16);
     margin-bottom: rem(30);
     padding: 0 rem(20);
+    text-align: left;
   }
   
   .company__contents {
