@@ -19,8 +19,80 @@
 </head>
 <body>
   <!-- Header -->
-  <header class="header">
+  <header class="lpHeader">
+    <div class="lpHeader__container">
+      <div class="lpHeader__logo">
+        <a href="/">
+          <img src="/wp-content/uploads/2026/03/logo.webp" alt="みつたけ探偵事務所">
+        </a>  
+      </div>
+      <div class="lpHeader__btn-contents">
+        <div class="lpHeader__btn">
+         <a href="#contact" class="mitsutake-btn mitsutake-btn--green" data-inquiry-type="資料請求">
+            <div class="mitsutake-btn__icon"><img src="/wp-content/uploads/2026/03/btn-icon-shiryo.webp" alt="資料請求"></div>
+            <span class="mitsutake-btn__text">資料請求</span>
+          </a>
+        </div>
+        <div class="lpHeader__btn">
+          <a href="#contact" class="mitsutake-btn mitsutake-btn--brown" data-inquiry-type="お問い合わせ">
+            <div class="mitsutake-btn__icon"><img src="/wp-content/uploads/2026/03/btn-icon-contact.webp" alt="お問い合わせ"></div>
+            <span class="mitsutake-btn__text">お問い合わせ</span>
+          </a>
+        </div>
+      </div>
+      <div class="lpHeader__drower-btn">
+        <span class="lpHeader__drower-btn-line"></span>
+        <span class="lpHeader__drower-btn-line"></span>
+        <span class="lpHeader__drower-btn-line"></span>
+      </div>
+    </div>
   </header>
+
+  <div id="drower" class="drower">
+    <div class="drower__container container">
+      <ul class="lpHeader__drower-menu">
+        <li class="lpHeader__drower-menu-item">
+          <a href="#reason">専門調査がなぜ必要なのか？</a>
+        </li>
+        <li class="lpHeader__drower-menu-item">
+          <a href="#service">私たちが提供するサービス内容</a>
+        </li>
+        <li class="lpHeader__drower-menu-item">
+          <a href="#choice">私たちが選ばれる理由</a>
+        </li>
+        <li class="lpHeader__drower-menu-item">
+          <a href="#pricing">料金の決まり方をご紹介</a>
+        </li>
+        <li class="lpHeader__drower-menu-item">
+          <a href="#flow">ご利用の流れ</a>
+        </li>
+        <li class="lpHeader__drower-menu-item">
+          <a href="#case">実際にあった調査事例をご紹介</a>
+        </li>
+        <li class="lpHeader__drower-menu-item">
+          <a href="#faq">よくある質問</a>
+        </li>
+        <li class="lpHeader__drower-menu-item">
+          <a href="#company">会社情報</a>
+        </li>
+      </ul>
+      <div class="lpHeader__drower-btn-contents">
+        <div class="lpHeader__drower-btn-cta">
+         <a href="#contact" class="mitsutake-btn mitsutake-btn--green" data-inquiry-type="資料請求">
+            <div class="mitsutake-btn__icon"><img src="/wp-content/uploads/2026/03/btn-icon-shiryo.webp" alt="資料請求"></div>
+            <span class="mitsutake-btn__text">資料請求</span>
+          </a>
+        </div>
+        <div class="lpHeader__drower-btn-cta">
+          <a href="#contact" class="mitsutake-btn mitsutake-btn--brown" data-inquiry-type="お問い合わせ">
+            <div class="mitsutake-btn__icon"><img src="/wp-content/uploads/2026/03/btn-icon-contact.webp" alt="お問い合わせ"></div>
+            <span class="mitsutake-btn__text">お問い合わせ</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <section class="section section--kv">
     <div class="kv__container container">
       <div class="kv__columns">
@@ -60,7 +132,7 @@
             <div class="kv__btn">
               <div class="fukidashi-btn fukidashi-btn--green">
                 <p class="fukidashi-btn__text">見本レポート付き</p>
-                <a href="#form" class="mitsutake-btn mitsutake-btn--green">
+                <a href="#contact" class="mitsutake-btn mitsutake-btn--green" data-inquiry-type="資料請求">
                   <div class="mitsutake-btn__icon"><img src="/wp-content/uploads/2026/03/btn-icon-shiryo.webp" alt="資料請求"></div>
                   <span class="mitsutake-btn__text">資料請求</span>
                 </a>
@@ -69,7 +141,7 @@
             <div class="kv__btn">
               <div class="fukidashi-btn fukidashi-btn--brown">
                 <p class="fukidashi-btn__text">即日着手可</p>
-                <a href="#form" class="mitsutake-btn mitsutake-btn--brown">
+                <a href="#contact" class="mitsutake-btn mitsutake-btn--brown" data-inquiry-type="お問い合わせ">
                   <div class="mitsutake-btn__icon"><img src="/wp-content/uploads/2026/03/btn-icon-contact.webp" alt="お問い合わせ"></div>
                   <span class="mitsutake-btn__text">お問い合わせ</span>
                 </a>
@@ -79,7 +151,30 @@
         </div>
         <div class="kv__image-contents">
           <div class="kv__image">
-            <img src="/wp-content/uploads/2026/03/kv-image.webp" alt="資料">
+            <picture>
+              <source srcset="/wp-content/uploads/2026/03/kv-image-sp.webp" media="(max-width: 767px)" type="image/webp">
+              <img src="/wp-content/uploads/2026/03/kv-image.webp" alt="女性と資料">
+            </picture>
+          </div>
+        </div>
+        <div class="kv__btn-contents-sp">
+          <div class="kv__btn">
+            <div class="fukidashi-btn fukidashi-btn--green">
+              <p class="fukidashi-btn__text">見本レポート付き</p>
+              <a href="#contact" class="mitsutake-btn mitsutake-btn--green" data-inquiry-type="資料請求">
+                <div class="mitsutake-btn__icon"><img src="/wp-content/uploads/2026/03/btn-icon-shiryo.webp" alt="資料請求"></div>
+                <span class="mitsutake-btn__text">資料請求</span>
+              </a>
+            </div>
+          </div>
+          <div class="kv__btn">
+            <div class="fukidashi-btn fukidashi-btn--brown">
+              <p class="fukidashi-btn__text">即日着手可</p>
+              <a href="#contact" class="mitsutake-btn mitsutake-btn--brown" data-inquiry-type="お問い合わせ">
+                <div class="mitsutake-btn__icon"><img src="/wp-content/uploads/2026/03/btn-icon-contact.webp" alt="お問い合わせ"></div>
+                <span class="mitsutake-btn__text">お問い合わせ</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -87,7 +182,7 @@
   </section>
 
   <!-- Section 2: こんな悩みはありませんか？ -->
-  <section class="section section--concerns">
+  <section id="concerns" class="section section--concerns">
     <div class="concerns__container container">
       <div class="section-title">
         <h2 class="section-title__text">こんなお悩みは<br class="br-sp">ありませんか？</h2>
@@ -221,7 +316,7 @@
               <div class="cta01__btn">
                 <div class="fukidashi-btn fukidashi-btn--green">
                   <p class="fukidashi-btn__text">見本レポート付き</p>
-                  <a href="#form" class="mitsutake-btn mitsutake-btn--green">
+                  <a href="#contact" class="mitsutake-btn mitsutake-btn--green" data-inquiry-type="資料請求">
                     <div class="mitsutake-btn__icon"><img src="/wp-content/uploads/2026/03/btn-icon-shiryo.webp" alt="資料請求"></div>
                     <span class="mitsutake-btn__text">資料請求</span>
                   </a>
@@ -230,7 +325,7 @@
               <div class="cta01__btn">
                 <div class="fukidashi-btn fukidashi-btn--brown">
                   <p class="fukidashi-btn__text">即日着手可</p>
-                  <a href="#form" class="mitsutake-btn mitsutake-btn--brown">
+                  <a href="#contact" class="mitsutake-btn mitsutake-btn--brown" data-inquiry-type="お問い合わせ">
                     <div class="mitsutake-btn__icon"><img src="/wp-content/uploads/2026/03/btn-icon-contact.webp" alt="お問い合わせ"></div>
                     <span class="mitsutake-btn__text">お問い合わせ</span>
                   </a>
@@ -244,7 +339,7 @@
   </section>
 
   <!-- Section 4: だから専門の調査が必要です -->
-  <section class="section section--reason">
+  <section id="reason" class="section section--reason">
     <div class="reason__background"></div>
     <div class="reason__container container">
       <div class="section-title reason__title">
@@ -314,7 +409,7 @@
               <div class="cta02__btn">
                 <div class="fukidashi-btn fukidashi-btn--green">
                   <p class="fukidashi-btn__text">見本レポート付き</p>
-                  <a href="#form" class="mitsutake-btn mitsutake-btn--green">
+                  <a href="#contact" class="mitsutake-btn mitsutake-btn--green" data-inquiry-type="資料請求">
                     <div class="mitsutake-btn__icon"><img src="/wp-content/uploads/2026/03/btn-icon-shiryo.webp" alt="資料請求"></div>
                     <span class="mitsutake-btn__text">資料請求</span>
                   </a>
@@ -323,7 +418,7 @@
               <div class="cta02__btn">
                 <div class="fukidashi-btn fukidashi-btn--brown">
                   <p class="fukidashi-btn__text">即日着手可</p>
-                  <a href="#form" class="mitsutake-btn mitsutake-btn--brown">
+                  <a href="#contact" class="mitsutake-btn mitsutake-btn--brown" data-inquiry-type="お問い合わせ">
                     <div class="mitsutake-btn__icon"><img src="/wp-content/uploads/2026/03/btn-icon-contact.webp" alt="お問い合わせ"></div>
                     <span class="mitsutake-btn__text">お問い合わせ</span>
                   </a>
@@ -337,7 +432,7 @@
   </section>
 
   <!-- Section 5: 私たちが提供するサービス内容 -->
-  <section class="section section--service">
+  <section id="service" class="section section--service">
     <div class="service__container container">
       <div class="section-title service__title">
         <h2 class="section-title__text service__title-main">
@@ -387,7 +482,7 @@
           <div class="service__card">
             <div class="service__header">
               <p class="service__number"><span class="service__number-label">service</span><span class="service__number-num">04</span></p>
-              <h3 class="service__card-title color-light-green">勤務実態の<br class="br-pc">. 可視化</h3>
+              <h3 class="service__card-title color-light-green">勤務実態の可視化</h3>
             </div>
             <div class="service__card-image">
               <img src="/wp-content/uploads/2026/03/service-image-04.webp" alt="勤務実態の可視化">
@@ -421,7 +516,7 @@
   </section>
 
   <!-- Section 6: 選ばれる理由 -->
-  <section class="section section--choice">
+  <section id="choice" class="section section--choice">
     <div class="choice__container container">
       <div class="section-title choice__title">
         <h2 class="section-title__text choice__title-main">
@@ -486,7 +581,7 @@
   </section>
 
   <!-- Section 7: 料金の決まり方 -->
-  <section class="section section--price">
+  <section id="pricing" class="section section--price">
     <div class="price__container container">
       <div class="section-title price__title">
         <h2 class="section-title__text price__title-main">
@@ -510,8 +605,8 @@
             <div class="price__card-content">
               <p class="price__card-first-text">0<span class="price__card-first-text--small">円</span></p>
             </div>
-            <span class="price__card-add-signal"></span>
           </div>
+          <span class="price__card-add-signal"></span>
           <div class="price__card">
             <div class="price__card-head">
               <h3 class="price__card-head-text">
@@ -524,8 +619,8 @@
                 <p class="price__card-text color-light-green">調査員の稼働<br>（時間）</p>
               </div>
             </div>
-            <span class="price__card-add-signal"></span>
           </div>
+          <span class="price__card-add-signal"></span>
           <div class="price__card">
             <div class="price__card-head">
               <h3 class="price__card-head-text">
@@ -576,7 +671,7 @@
               <div class="cta01__btn">
                 <div class="fukidashi-btn fukidashi-btn--green">
                   <p class="fukidashi-btn__text">見本レポート付き</p>
-                  <a href="#form" class="mitsutake-btn mitsutake-btn--green">
+                  <a href="#contact" class="mitsutake-btn mitsutake-btn--green" data-inquiry-type="資料請求">
                     <div class="mitsutake-btn__icon"><img src="/wp-content/uploads/2026/03/btn-icon-shiryo.webp" alt="資料請求"></div>
                     <span class="mitsutake-btn__text">資料請求</span>
                   </a>
@@ -585,7 +680,7 @@
               <div class="cta01__btn">
                 <div class="fukidashi-btn fukidashi-btn--brown">
                   <p class="fukidashi-btn__text">即日着手可</p>
-                  <a href="#form" class="mitsutake-btn mitsutake-btn--brown">
+                  <a href="#contact" class="mitsutake-btn mitsutake-btn--brown" data-inquiry-type="お問い合わせ">
                     <div class="mitsutake-btn__icon"><img src="/wp-content/uploads/2026/03/btn-icon-contact.webp" alt="お問い合わせ"></div>
                     <span class="mitsutake-btn__text">お問い合わせ</span>
                   </a>
@@ -599,7 +694,7 @@
   </section>
 
   <!-- Section 9: ご利用の流れ -->
-  <section class="section section--flow">
+  <section id="flow" class="section section--flow">
     <div class="flow__container container">
       <div class="section-title flow__title">
         <h2 class="section-title__text flow__title-main">
@@ -707,7 +802,7 @@
   </section>
 
   <!-- Section 10: 実際にあった例をご紹介 -->
-  <section class="section section--cases">
+  <section id="cases" class="section section--cases">
     <div class="cases__background"></div>
     <div class="cases__container container">
       <div class="section-title case__title">
@@ -753,7 +848,7 @@
               <span class="cases__badge-text">医療系</span>
             </div>
             <div class="cases__image">
-              <img src="/wp-content/uploads/2026/03/need-image-02.webp" alt="医療系の事例">
+              <img src="/wp-content/uploads/2026/03/example-02.webp" alt="医療系の事例">
             </div>
           </div>
           <div class="cases__item-content">
@@ -783,12 +878,12 @@
               <span class="cases__badge-text">運送系</span>
             </div>
             <div class="cases__image">
-              <img src="/wp-content/uploads/2026/03/need-image-03.webp" alt="運送系の事例">
+              <img src="/wp-content/uploads/2026/03/example-03.webp" alt="運送系の事例">
             </div>
           </div>
           <div class="cases__item-content">
             <div class="cases__item-title">
-              <div class="cases__item-title-icon"><img src="/wp-content/uploads/2026/03/serchi-icon.webp" alt="医療系の事例アイコン"></div>
+              <div class="cases__item-title-icon"><img src="/wp-content/uploads/2026/03/serchi-icon.webp" alt="運送系の事例アイコン"></div>
               <h3 class="cases__item-title-text">噂を社内で扱える事実に</h3>
             </div>
             <div class="cases__item-section">
@@ -812,7 +907,7 @@
   </section>
 
   <!-- Section 11: よくある質問 -->
-  <section class="section section--faq">
+  <section id="faq" class="section section--faq">
     <div class="faq__container container">
       <div class="section-title faq__title">
         <h2 class="section-title__text faq__title-main">
@@ -897,7 +992,7 @@
   </section>
 
   <!-- Section 12: 会社概要 -->
-  <section class="section section--company">
+  <section id="company" class="section section--company">
     <div class="company__container container">
       <div class="section-title company__title">
         <h2 class="section-title__text company__title-main">
@@ -969,7 +1064,7 @@
               <div class="cta02__btn">
                 <div class="fukidashi-btn fukidashi-btn--green">
                   <p class="fukidashi-btn__text">見本レポート付き</p>
-                  <a href="#form" class="mitsutake-btn mitsutake-btn--green">
+                  <a href="#contact" class="mitsutake-btn mitsutake-btn--green" data-inquiry-type="資料請求">
                     <div class="mitsutake-btn__icon"><img src="/wp-content/uploads/2026/03/btn-icon-shiryo.webp" alt="資料請求"></div>
                     <span class="mitsutake-btn__text">資料請求</span>
                   </a>
@@ -978,7 +1073,7 @@
               <div class="cta02__btn">
                 <div class="fukidashi-btn fukidashi-btn--brown">
                   <p class="fukidashi-btn__text">即日着手可</p>
-                  <a href="#form" class="mitsutake-btn mitsutake-btn--brown">
+                  <a href="#contact" class="mitsutake-btn mitsutake-btn--brown" data-inquiry-type="お問い合わせ">
                     <div class="mitsutake-btn__icon"><img src="/wp-content/uploads/2026/03/btn-icon-contact.webp" alt="お問い合わせ"></div>
                     <span class="mitsutake-btn__text">お問い合わせ</span>
                   </a>

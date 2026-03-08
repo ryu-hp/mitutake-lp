@@ -1,33 +1,58 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // ビデオの再生コントロール
-  const videoWrappers = document.querySelectorAll('.video-wrapper');
-  
-  videoWrappers.forEach((wrapper) => {
-    const video = wrapper.querySelector('.promo-video');
-    const playBtn = wrapper.querySelector('.video-play-btn');
-    
-    // 再生/一時停止
-    const togglePlay = () => {
-      if (video.paused) {
-        video.play();
-        playBtn.style.opacity = '0';
-        playBtn.style.pointerEvents = 'none';
+  // ドロワーメニューの開閉
+  const drowerBtn = document.querySelector('.lpHeader__drower-btn');
+  const drower = document.querySelector('#drower');
+  const body = document.body;
+  const drowerLinks = document.querySelectorAll('.lpHeader__drower-menu-item a, .lpHeader__drower-btn-contents a');
+
+  // ドロワーメニューを閉じる関数
+  const closeDrower = () => {
+    if (drower) drower.classList.remove('is-open');
+    if (drowerBtn) drowerBtn.classList.remove('is-active');
+    body.classList.remove('drower-open');
+  };
+
+  // ドロワーメニューを開く関数
+  const openDrower = () => {
+    if (drower) drower.classList.add('is-open');
+    if (drowerBtn) drowerBtn.classList.add('is-active');
+    body.classList.add('drower-open');
+  };
+
+  if (drowerBtn && drower) {
+    // ハンバーガーボタンのクリック
+    drowerBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); // イベントのバブリングを防ぐ
+      const isOpen = drower.classList.contains('is-open');
+      
+      if (isOpen) {
+        closeDrower();
       } else {
-        video.pause();
-        playBtn.style.opacity = '1';
-        playBtn.style.pointerEvents = 'auto';
+        openDrower();
       }
-    };
-    
-    video.addEventListener('click', togglePlay);
-    playBtn.addEventListener('click', togglePlay);
-    
-    // 再生終了時に再生ボタンを表示
-    video.addEventListener('ended', () => {
-      playBtn.style.opacity = '1';
-      playBtn.style.pointerEvents = 'auto';
     });
-  });
+
+    // ドロワー内のリンクをクリックしたら閉じる
+    drowerLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        closeDrower();
+      });
+    });
+
+    // ドロワー自体のクリックでイベントバブリングを停止
+    drower.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+
+    // オーバーレイクリックで閉じる
+    document.addEventListener('click', (e) => {
+      if (body.classList.contains('drower-open') && 
+          !drower.contains(e.target) && 
+          !drowerBtn.contains(e.target)) {
+        closeDrower();
+      }
+    });
+  }
 
   // FAQアコーディオン
   const faqItems = document.querySelectorAll('.faq__item');
@@ -86,8 +111,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
         e.preventDefault();
-        const header = document.querySelector('.header');
-        const headerHeight = header ? header.offsetHeight : 0;
+        const lpHeader = document.querySelector('.lpHeader');
+        const headerHeight = lpHeader ? lpHeader.offsetHeight : 0;
         const targetPosition = targetElement.offsetTop - headerHeight;
         
         window.scrollTo({
@@ -95,13 +120,30 @@ document.addEventListener('DOMContentLoaded', () => {
           behavior: 'smooth'
         });
 
-        // メニューが開いていたら閉じる
-        if (headerToggle && mobileMenu && body.classList.contains('menu-open')) {
-          headerToggle.classList.remove('is-active');
-          mobileMenu.classList.remove('is-open');
-          body.classList.remove('menu-open');
+        // ドロワーメニューが開いていたら閉じる
+        if (body.classList.contains('drower-open')) {
+          closeDrower();
         }
       }
+    });
+  });
+
+  // お問い合わせ種別の自動選択
+  const contactButtons = document.querySelectorAll('a[href="#contact"][data-inquiry-type]');
+  contactButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const inquiryType = this.getAttribute('data-inquiry-type');
+      
+      // フォームのselectが存在する場合、少し遅延させて値を設定
+      setTimeout(() => {
+        const selectElement = document.getElementById('your-select');
+        if (selectElement && inquiryType) {
+          selectElement.value = inquiryType;
+          // selectの変更イベントをトリガー（Contact Form 7など用）
+          const event = new Event('change', { bubbles: true });
+          selectElement.dispatchEvent(event);
+        }
+      }, 100);
     });
   });
 

@@ -51,6 +51,8 @@ body {
 .section-title__text {
   font-size: rem(40);
   font-weight: $bold;
+  font-family: $second-font-family;
+  padding: 0;
 }
 
 .section-title__line {
@@ -74,7 +76,7 @@ body {
   height: calc(10 / 54 * 1em);
   left: 50%;
   transform: translateX(-50%);
-  bottom: 110%;
+  bottom: calc(100% + 0.1em);
 }
 
 .color-theme {
@@ -168,6 +170,112 @@ body {
   background-color: $color-brown;
 }
 
+// Header 
+.lpHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  padding: rem(16) rem(20);
+}
+.lpHeader__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1380px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.lpHeader__logo {
+  width: rem(200);
+}
+.lpHeader__logo .mitsutake-btn {
+  padding: rem(8) rem(30);
+  font-size: rem(15);
+  gap: rem(16);
+}
+.lpHeader__logo .mitsutake-btn.mitsutake-btn--green .mitsutake-btn__icon {
+  width: rem(15);
+}
+.lpHeader__logo .mitsutake-btn.mitsutake-btn--brown .mitsutake-btn__icon {
+  width: rem(18);
+}
+
+.lpHeader__btn-contents {
+  display: flex;
+  gap: rem(24);
+}
+.lpHeader__btn {
+  width: rem(200);
+  flex-shrink: 0;
+}
+
+// Drower Menu
+.lpHeader__drower-btn {
+  display: none;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+
+.drower {
+  display: none;
+}
+
+.lpHeader__drower-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 rem(30) 0;
+}
+
+.lpHeader__drower-menu-item {
+  a {
+    display: block;
+    padding: rem(16) 0;
+    color: var(--color-black);
+    text-decoration: none;
+    font-size: rem(16);
+    transition: color 0.3s ease;
+    
+    &:hover {
+      color: $color-light-green;
+    }
+  }
+}
+
+.lpHeader__drower-btn-contents {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16);
+  
+  .lpHeader__drower-btn-cta {
+    width: 100%;
+    display: block;
+  }
+}
+
+body.drower-open {
+  overflow: hidden;
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    pointer-events: auto;
+  }
+}
+
+
 // KV Section
 
 .section--kv {
@@ -198,7 +306,7 @@ body {
 .kv__image-contents {
   width: calc(472 / 1440 * 100%);
   bottom: 0;
-  right: calc(130 / 1440 * 100%);
+  right: 0;
   position: absolute;
 }
 .kv__main-copy-block {
@@ -218,7 +326,10 @@ body {
 }
 .kv__main-copy-block + .kv__main-copy-block {
   margin-top: calc(12 / 1440 * 100vw);
-} 
+}
+.kv__main-copy-block .text-dot::before {
+  bottom : calc(100% + (10 / 54 * 1em))
+}
 .kv__main-copy {
   margin-bottom: calc(30 / 1440 * 100vw);
   display: flex;
@@ -276,6 +387,9 @@ body {
 .kv__btn {
   width: calc(290 / 1440 * 100vw);
 }
+.kv__btn-contents-sp {
+  display: none;
+}
 @media screen and (min-width:1440px) {
   .kv__container {
     padding-top: 102px;
@@ -283,7 +397,7 @@ body {
   }
   .kv__image-contents {
     width: 472px;
-    right: 130px;
+    right: 0;
   }
   .kv__main-copy-block {
     font-size: 54px;
@@ -409,7 +523,7 @@ body {
 
 // Risks Section
 .section--risks {
-  background-image: url(/wp-content/uploads/2026/03/risks-bg-image-scaled.webp);
+  background-image: url(/wp-content/uploads/2026/03/concern-bg-image-01-scaled.webp);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -489,7 +603,7 @@ body {
   padding-bottom: 0;
 }
 .risks__item:not(:last-child) {
-  border-bottom: 1px dashed #E0E0E0;
+  border-bottom: 1px dashed $color-brown;
 }
 .risks__item::before {
   position: absolute;
@@ -606,7 +720,11 @@ body {
 
 // Reason Section
 .section--reason {
-  background: linear-gradient(to bottom, #EEFFDE 0%, rgba(139, 195, 74, 0.2) 100%);
+  background-image: url(/wp-content/uploads/2026/03/rason-bg-image-scaled.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #fff;
   padding: rem(100) 0;
   position: relative;
 }
@@ -838,6 +956,7 @@ body {
 }
 .service__number-num {
   font-size: 1.2em;
+  margin-left: rem(8);
 }
 .service__card-title {
   font-size: rem(24);
@@ -849,6 +968,20 @@ body {
   padding-left: rem(30);
   padding-right: rem(30);
   font-weight: $medium;
+}
+.service__card-image {
+  position: relative;
+}
+.service__card-image::before {
+  display: block;
+  content: "";
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(135 / 307 * 100%);
+  z-index: 1;
+  background: linear-gradient(-90deg, rgba(255, 255, 255, 0.00) 0%, #FFF 100%);
 }
 .service__comments {
   display: flex;
@@ -1002,13 +1135,14 @@ body {
   display: flex;
   gap: rem(30);
   margin-bottom: rem(24);
+  align-items: center;
 }
 .price__card {
   background: $color-white;
   padding: 0 rem(30);
   flex: 1;
   position: relative;
-  z-index: 1;
+  z-index: 0;
 }
 .price__card-head {
   display: flex;
@@ -1040,15 +1174,13 @@ body {
 }
 .price__card-add-signal {
   display: block;
-  position: absolute;
+  position: relative;
   width: rem(44);
   height: rem(44);
   border-radius: 50%;
-  top: 50%;
-  transform: translateY(-50%);
-  left: calc(100% - rem(7));
   background-color: var(--color-theme);
   z-index: 1;
+  margin: 0 calc(-1 * rem(37));
 }
 .price__card-add-signal::before,
 .price__card-add-signal::after {
@@ -1403,16 +1535,30 @@ body {
   color: $color-text;
 }
 .cases__item-text-item {
-  list-style: disc;
-  list-style-position: inside;
   font-weight: $medium;
+  padding-left: 1.25em;
+  position: relative;
+}
+.cases__item-text-item::before {
+  display: block;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 0.375em;
+  width: 0.375em;
+  border-radius: 50%;
+  background: #37474F;
+  top: calc((1em * 1.6) / 2);
+  left: calc((1em / 2));
+  transform: translate(-50%, -50%);
 }
 
 // FAQ Section
 
 .section--faq {
   background-color: #E2EFD9;
-  padding: rem(100) 0;
+  padding: rem(100) 0 rem(50);
 }
 .faq__contents {
   display: flex;
@@ -1424,10 +1570,6 @@ body {
   margin-bottom: 1px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  
-  &:hover {
-    background-color: rgba($color-theme, 0.05);
-  }
 }
 .faq__contents--answer {
   background-color: rgba($color: #fff, $alpha: 0.7);
@@ -1475,10 +1617,12 @@ body {
   font-size: rem(16);
   font-weight: $medium;
   background-color: transparent;
+  padding-right: 0;
 }
 .faq__signal {
   width: rem(29);
   position: relative;
+  flex-shrink: 0;
 }
 .faq__signal::before,
 .faq__signal::after {
@@ -1507,8 +1651,11 @@ body {
 // Company Section
 .section--company {
   background-color: #E2EFD9;
-  padding: rem(100) 0;
+  padding: rem(50) 0 rem(100);
   position: relative;
+}
+.company__container.container {
+  max-width: 1040px;
 }
 .company__description {
   font-size: rem(16);
@@ -1529,10 +1676,15 @@ body {
   margin-left:auto;;
   margin-bottom: rem(50);
 }
+.company__content {
+  max-width: 800px;
+  margin-right:auto;
+  margin-left:auto;
+}
 .company__item {
   display: flex;
   align-items: flex-start;
-  gap: rem(30);
+  // gap: rem(30);
   padding: rem(20) rem(20);
 }
 .company__item:not(:last-child) {
@@ -1545,8 +1697,7 @@ body {
   padding-bottom: 0;
 }
 .company__item-label {
-  max-width: rem(160);
-  width: 100%;
+  width: calc(240 / 760 * 100%);
   flex-shrink: 0;
   color: var(--color-theme);
   font-weight: $bold;
@@ -1560,7 +1711,7 @@ body {
 .company__message {
   font-size: rem(14);
   font-weight: $medium;
-  text-align: center;
+  text-align: right;
 }
 
 // Contact Section
@@ -1797,6 +1948,10 @@ input[type=submit].form-item__submit {
 // Responsive Styles
 @include mq(md) {
   // Common
+  .sp_header {
+    display: none !important;
+  }
+
   .section-title__text {
     font-size: rem(24);
   }
@@ -1828,6 +1983,119 @@ input[type=submit].form-item__submit {
     bottom: 95%;
   }
 
+  // Header
+  .lpHeader__logo {
+    width: rem(160);
+  }
+  .lpHeader__btn-contents {
+    display: none;
+  }
+  .lpHeader__drower-btn {
+    display: block;
+    width: rem(39);
+    height: rem(39);
+    background-color: var(--color-theme);
+    position: relative;
+    z-index: 1001;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    border: none;
+    border-radius: 0;
+    
+    &.is-active {
+      .lpHeader__drower-btn-line:nth-child(1) {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+      .lpHeader__drower-btn-line:nth-child(2) {
+        opacity: 0;
+      }
+      .lpHeader__drower-btn-line:nth-child(3) {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+    }
+  }
+  .lpHeader__drower-btn-line {
+    position: absolute;
+    display: block;
+    width: rem(23);
+    height: rem(2);
+    background-color: $color-white;
+    left: 50%;
+    transition: all 0.3s ease;
+  }
+  .lpHeader__drower-btn-line:nth-child(1) {
+    top: calc(50% - rem(8));
+    transform: translate(-50%,-50%);
+  }
+  .lpHeader__drower-btn-line:nth-child(2) {
+    top: 50%;
+    transform: translate(-50%,-50%);
+  }
+  .lpHeader__drower-btn-line:nth-child(3) {
+    top: calc(50% + rem(8));
+    transform: translate(-50%,-50%);
+  }
+
+  // drower menu 
+  .drower {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: none;
+    z-index: 999;
+    padding: rem(60) 0 rem(30);
+    overflow-y: auto;
+    
+    &.is-open {
+      display: block;
+    }
+  }
+
+  .lpHeader__drower-menu-item a {
+    display: block;
+    padding: rem(16) 0;
+    padding-right: rem(16);
+    position: relative;
+    border-bottom: 1px solid $color-brown;
+    font-size: rem(16);
+    font-weight: $bold;
+    text-decoration: none;
+    color: $color-black;
+  }
+  .lpHeader__drower-menu-item a::after {
+    position: absolute;
+    display: block;
+    content:"" ;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: rem(8);
+    height: rem(13);
+    background-image: url(/wp-content/uploads/2026/03/drower-arrow.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .lpHeader__drower-menu {
+    margin-bottom: rem(24);
+  }
+  .lpHeader__drower-btn-contents {
+    display: flex;
+    flex-direction: column;
+    gap: rem(20);
+    align-items: center;
+    
+    .lpHeader__drower-btn-cta {
+      width: 100%;
+      display: block;
+    }
+  }
+
   // KV Section
   .kv__container {
     padding-top: rem(60);
@@ -1836,14 +2104,16 @@ input[type=submit].form-item__submit {
   
   .kv__columns {
     flex-direction: column;
-    gap: rem(30);
+    // gap: rem(30);
+    gap: 0;
   }
   
   .kv__image-contents {
     position: static;
     width: 100%;
-    margin-top: rem(30);
-    display: none;
+    // margin-top: rem(30);
+    margin-top: 0;
+    // display: none;
   }
   
   .kv__main-copy {
@@ -1864,18 +2134,21 @@ input[type=submit].form-item__submit {
   
   .kv__feature {
     gap: rem(20);
-    margin-bottom: rem(30);
-    align-items: flex-start;
+    // margin-bottom: rem(30);
+    margin-bottom: 0;
+    align-items: stretch;
     justify-content: center;
     flex-wrap: wrap;
   }
   
   .kv__feature-item {
     gap: rem(12);
+    flex-direction: column;
+    width: calc((100% - rem(40)) / 3);
   }
   
   .kv__feature-item:not(:last-child)::after {
-    display: none;
+    left: calc(100% + rem(10));
   }
   
   .kv__feature-text {
@@ -1894,12 +2167,26 @@ input[type=submit].form-item__submit {
   
   .kv__btn-contents {
     flex-direction: column;
-    gap: rem(20);
+    gap: rem(24);
     width: 100%;
+    display: none;
   }
   
-  .kv__btn {
+  .kv__btn-contents-sp {
+    display: block;
+    // flex-direction: column;
+    gap: rem(24);
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: rem(-32);
+  }
+  .kv__btn {
+    width: calc((100% - rem(24)) / 2);
+  }
+  .kv__btn .mitsutake-btn__icon {
+    display: none;
   }
 
   // Concerns Section
@@ -2120,6 +2407,9 @@ input[type=submit].form-item__submit {
   .service__card-image {
     padding: 0 rem(20);
   }
+  .service__card-image::before {
+    display: none;
+  }
   
   .service__card-text {
     grid-column: 1;
@@ -2148,6 +2438,7 @@ input[type=submit].form-item__submit {
     clip-path: polygon(0 0 , 100% 0 , 50% 100%);
     left: 10%;
     top: calc(100% - rem(10));
+    height: rem(32);
   }
   
   .service__comments-head {
@@ -2227,6 +2518,7 @@ input[type=submit].form-item__submit {
   
   .price__card {
     padding: 0 rem(20);
+    width: 100%;
   }
   
   .price__card-head-text {
@@ -2246,7 +2538,7 @@ input[type=submit].form-item__submit {
   }
   
   .price__card-add-signal {
-    display: none;
+    margin: rem(-30) 0;
   }
   
   .price__card-text {
@@ -2331,6 +2623,7 @@ input[type=submit].form-item__submit {
   
   .flow__card-step-item {
     gap: rem(20);
+    align-items: flex-start;
   }
   
   .flow__card-step-item:not(:last-child) {
@@ -2342,10 +2635,10 @@ input[type=submit].form-item__submit {
     left: rem(24);
     top: rem(48);
   }
-  
   .flow__card-step-item:last-child:after {
-    height: rem(320);
+    display: none;
   }
+  
   .flow__card:last-child .flow__card-step-item:after {
     height: rem(120);
   }
@@ -2408,6 +2701,9 @@ input[type=submit].form-item__submit {
     font-size: rem(20);
     padding-bottom: rem(12);
   }
+  .cases__item-title-text {
+    font-size: 1em;
+  }
   
   .cases__item-section {
     padding-top: rem(16);
@@ -2428,7 +2724,7 @@ input[type=submit].form-item__submit {
   }
 
   .faq__contents {
-    padding-right: rem(20);
+    padding-right: rem(16);
   }
   
   .faq__icon {
@@ -2449,7 +2745,7 @@ input[type=submit].form-item__submit {
   }
   
   .faq__signal {
-    width: rem(24);
+    width: rem(20);
   }
   
   .faq__item:not(:last-child) {
@@ -2464,7 +2760,7 @@ input[type=submit].form-item__submit {
   .company__description {
     font-size: rem(16);
     margin-bottom: rem(30);
-    padding: 0 rem(20);
+    padding: 0;
     text-align: left;
   }
   
@@ -2485,7 +2781,7 @@ input[type=submit].form-item__submit {
   }
   
   .company__item-label {
-    max-width: 100%;
+    width: 100%;
     font-size: rem(16);
   }
   
@@ -2572,89 +2868,5 @@ input[type=submit].form-item__submit {
 
   .lpFooter__copyright {
     font-size: rem(10);
-  }
-}
-
-.fix-contents {
-  position: fixed;
-  top: 20%;
-  right: 0;
-  z-index: 1000;
-}
-.fix-contents__columns {
-  display: flex;
-  flex-direction: column;
-  gap: rem(20);
-}
-.fix-contents__btn {
-  height: rem(221);
-}
-.fix-contents__btn .btn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  padding: rem(32) rem(20) rem(16);
-  border-radius: rem(20);
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-.fix-contents__btn .btn__text {
-  writing-mode: vertical-rl;
-  font-size: rem(20);
-}
-.fix-contents__btn .btn-icon {
-  left: 50%;
-  transform: translateX(-50%);
-  top: rem(12);
-  max-width: rem(31);
-}
-.fix-contents__btn .btn--demo .btn-icon {
-  max-width: rem(71);
-  top: rem(-24);
-  width: 100%;
-}
-@include mq(md) {
-  .fix-contents {
-    top: auto;
-    bottom: 0;
-    width: 100%;
-    background: linear-gradient(-59deg, #EEFFDE 0%, #8BC34A 67%, #8BC34A 100%);
-  }
-  .fix-contents__container {
-    padding: rem(10) $padding-sp;
-  }
-  .fix-contents__columns {
-    flex-direction: row;
-    justify-content: center;
-    gap: rem(10);
-  }
-  .fix-contents__btn {
-    max-width: rem(179);
-    width: 100%;
-    height: auto;
-  }
-  .fix-contents__btn .btn {
-    width: 100%;
-    max-width: 100%;
-    padding: rem(5) rem(20) rem(4) rem(16);
-    border-radius: rem(50);
-  }
-  .fix-contents__btn .btn__text {
-    writing-mode: horizontal-tb;
-    font-size: rem(14);
-  }
-  .fix-contents__btn .btn-icon {
-    top: 50%;
-    transform: translateY(-50%);
-    left: rem(8);
-    max-width: rem(18);
-  }
-  .fix-contents__btn .btn--demo .btn-icon {
-    max-width: rem(40);
-    left: rem(-8);
-    top: rem(-7);
-    transform: translateY(0);
   }
 }
